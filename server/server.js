@@ -2,11 +2,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const actions = require("./actions");
+const path = require("path");
 
 var corsOptions = {
   origin: 'localhost',
 }
 const app = express();
+
+
+
 
 app.use(function(req, res, next){
     console.log(`${req.method} ${req.path} - ${req.ip}`);
@@ -16,6 +20,10 @@ app.use(function(req, res, next){
 app.use(bodyParser.json());
   
 app.use(cors(corsOptions));
+
+app.use(express.static(path.resolve(__dirname, '../client/build')));
+
+
 
 
 app.get('/', function(req, res){
@@ -48,6 +56,10 @@ app.post('/api/clearscore', function(req, res){
         if (err === null) res.json({status: 'SUCCESS'});
         else res.json({status: err});
     });
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
 const actualPort = process.env.PORT || 3001;

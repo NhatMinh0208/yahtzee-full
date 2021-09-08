@@ -1,0 +1,12 @@
+{
+	"name": "@normie28/yahtzee-full",
+	"author": "normie28",
+	"version": "0.1.0",
+	"description": "Score server for @normie28/yahtzee",
+	"dependencies": {
+	},
+	"scripts": {
+		"start": "cd server && npm start",
+        "build": "cd server && npm install && cd ../client && npm install && npm run build"
+	}
+}

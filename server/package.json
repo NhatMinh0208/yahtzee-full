@@ -2,7 +2,7 @@
 	"name": "@normie28/yahtzee-server",
 	"author": "normie28",
 	"version": "0.1.0",
-	"description": "API Server for @normie28/yahtzee",
+	"description": "Score server for Normie's Yahtzee",
 	"dependencies": {
 		"body-parser": "^1.15.2",
 		"cookie-parser": "^1.4.3",

@@ -2,7 +2,7 @@
   "name": "@normie28/yahtzee",
   "version": "1.1.0",
   "author": "normie28",
-  "description": "Simple Yahtzee web game",
+  "description": "Client for Normie's Yahtzee",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
