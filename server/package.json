@@ -1,0 +1,19 @@
+{
+	"name": "@normie28/yahtzee-server",
+	"author": "normie28",
+	"version": "0.1.0",
+	"description": "API Server for @normie28/yahtzee",
+	"dependencies": {
+		"body-parser": "^1.15.2",
+		"cookie-parser": "^1.4.3",
+		"cors": "^2.8.5",
+		"dotenv": "^10.0.0",
+		"express": "^4.14.0",
+		"mongodb": "^4.0.0",
+		"mongoose": "^6.0.0"
+	},
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	}
+}
