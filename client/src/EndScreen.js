@@ -70,7 +70,6 @@ class EndScreen_P extends React.Component {
             </div>
             <div style={{
                 position: 'relative', 
-                border: '1px solid #ccc',
                 fontSize: '40px',
                 top: '100px',
             }}>
@@ -96,7 +95,6 @@ class EndScreen_P extends React.Component {
             </div> 
             <div style={{
                 fontSize: '40px',
-                border: '1px solid black',
                 height: '100px',
                 position: 'relative',
                 top: '100px', 

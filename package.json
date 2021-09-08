@@ -2,7 +2,7 @@
 	"name": "@normie28/yahtzee-full",
 	"author": "normie28",
 	"version": "0.1.0",
-	"description": "Score server for @normie28/yahtzee",
+	"description": "Normie's Yahtzee, a simple and light version of Yahtzee",
 	"dependencies": {
 	},
 	"scripts": {
