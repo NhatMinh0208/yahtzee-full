@@ -133,3 +133,11 @@ export function isGameOver(scoreboard) {
     for (let g in scoreboard) if (scoreboard[g].score instanceof Array && scoreboard[g].score.length < scoreboard[g].maxApplications) return false;
     return true;
 }
+
+export function upperSectionScore(scoreboard) {
+    // console.log(scoreboard);
+    let sum = 0;
+    for (let g in scoreboard) if (scoreboard[g].score instanceof Array && myConsts.SCORE_COLUMN[scoreboard[g].type]===0) 
+    for (let gg in scoreboard[g].score) sum+=scoreboard[g].score[gg];
+    return sum;
+}

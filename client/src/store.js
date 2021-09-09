@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import * as myConsts from './constants';
 import { defaultScoreboard } from './constants';
-import { calculateScore, clone, isGameOver } from './utils';
+import { calculateScore, clone, isGameOver, upperSectionScore } from './utils';
 
 function screenReducer(
     state = myConsts.SCREEN_TITLE,
@@ -136,7 +136,10 @@ function gameStateReducer(
                 newState.round = 0;
                 newState.dice = [0,0,0,0,0];
                 newState.keep = [0,0,0,0,0];
-                if (isGameOver(newState.scoreboard)) newState.phase = myConsts.PHASE_END_OF_GAME;
+                if (isGameOver(newState.scoreboard)) {
+                    if (upperSectionScore(newState.scoreboard) >= 63) newState.scoreboard[13].score+=35;
+                    newState.phase = myConsts.PHASE_END_OF_GAME;
+                }
             }
             return newState;
         }
