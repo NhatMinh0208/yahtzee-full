@@ -131,6 +131,12 @@ function gameStateReducer(
             else if (newState.round === 0) {
                 newState.error = 'You need to roll the dice first!';
                 newState.errorCnt++;
+            } else if (action.scoreType === myConsts.SCORE_TOTAL) {
+                newState.error = "That's not a valid score type!";
+                newState.errorCnt++;
+            } else {
+                newState.error = "You cannot score right now!";
+                newState.errorCnt++;
             }
             if (newState.error === null && newState.phase !== myConsts.PHASE_PICK_JOKER) {
                 newState.round = 0;
