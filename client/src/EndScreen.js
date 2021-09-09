@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { update_screen } from './actions';
-import { DB_push } from './db_ops';
+import { DB_push, DB_pull } from './db_ops';
 import * as myConsts from './constants';
 
 function mapStateToProps(state) {
@@ -18,7 +18,8 @@ function mapDispatchToProps(dispatch) {
         submit : (name, score) => dispatch(DB_push({
             name: name,
             score: score
-        })) 
+        })),
+        updateScores : () => dispatch(DB_pull()),
     }
 }
 
@@ -51,7 +52,10 @@ class EndScreen_P extends React.Component {
                 Return to Title Screen
             </button>
 
-            <button className='Button' onClick={() => this.props.changeScreen(myConsts.SCREEN_SCORES)} style={{
+            <button className='Button' onClick={() => {
+                this.props.changeScreen(myConsts.SCREEN_SCORES);
+                this.props.updateScores();
+            }} style={{
                 position: 'relative',
                 width: '450px',
                 height: '56px',
@@ -85,11 +89,16 @@ class EndScreen_P extends React.Component {
                     if (this.state.submitted) {
                         this.setState( {error : 'You have already submitted your score!'});
                         return;
+                    } 
+                    if (this.state.name.length>30) {
+                        this.setState( {error : 'Please restrict your name to 30 characters'});
+                        return;
                     }
                     this.props.submit(this.state.name, this.props.score);
                     this.setState({
                         name: '',
-                        submitted: 'true',
+                        submitted: true,
+                        error: null,
                     });
                 }}> Submit! </button>
             </div> 
