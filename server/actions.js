@@ -39,8 +39,19 @@ function getScore(data, callback) {
 
     models.Score.find({
     }).then((res) => {
+        const scoreList={};
+        for (let g in res) {
+            if (!scoreList[res[g].name] || scoreList[res[g].name] < res[g].score) scoreList[res[g].name] = res[g].score;
+        }
+        const finalscoreList = [];
+        for (let g in scoreList) {
+            finalscoreList.push({
+                name: g,
+                score: scoreList[g],
+            });
+        }
         clearTimeout(timeOut);
-        callback(null, res);
+        callback(null, finalscoreList);
     });
 }
 
